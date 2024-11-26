@@ -1,0 +1,47 @@
+# Brand Assets
+Logo: https://ik.imagekit.io/d36vkx7c33/img/gbs-logo.png?updatedAt=1732615653225
+Favicon: https://ik.imagekit.io/d36vkx7c33/img/favicon.png?updatedAt=1732615652626
+Logo (Alternative): https://i.ibb.co/Qj3ghWy/gbs-logo.png
+
+# Hero & Background Images
+Hero Background: https://ik.imagekit.io/d36vkx7c33/img/hero-bg.jpg?updatedAt=1732615653447
+
+# Course Images
+ACCA: https://ik.imagekit.io/d36vkx7c33/img/acca.jpg?updatedAt=1732615647441
+ACCA (Alternative): https://ik.imagekit.io/d36vkx7c33/img/acca%20dec%2009.jpg?updatedAt=1732615648692
+Revit: https://ik.imagekit.io/d36vkx7c33/img/revit.jpg?updatedAt=1732615653586
+Revit (Alternative): https://ik.imagekit.io/d36vkx7c33/revit.jpg?updatedAt=1730305372099
+Computerized Accounting: https://ik.imagekit.io/d36vkx7c33/img/computerized%20accounting.jpg?updatedAt=1732615647665
+Computerized Accounting (Alternative): https://ik.imagekit.io/d36vkx7c33/img/computerized%20accounting%20-%20course1.jpg?updatedAt=1732615647237
+Diploma in Accounting: https://ik.imagekit.io/d36vkx7c33/img/diploma%20in%20accounting.jpg?updatedAt=1732615651486
+Diploma Accounting: https://ik.imagekit.io/d36vkx7c33/img/diploma%20accounting.jpg?updatedAt=1732615650581
+Course 1: https://ik.imagekit.io/d36vkx7c33/img/course-1.jpg?updatedAt=1732615647353
+Course 2: https://ik.imagekit.io/d36vkx7c33/img/course-2.jpg?updatedAt=1732615647412
+Course 3: https://ik.imagekit.io/d36vkx7c33/img/course-3.jpg?updatedAt=1732615647575
+
+# Course Details
+Course Details Banner: https://ik.imagekit.io/d36vkx7c33/img/course-details.jpg?updatedAt=1732615651339
+Course Details Tab 1: https://ik.imagekit.io/d36vkx7c33/img/course-details-tab-1.png?updatedAt=1732615647347
+Course Details Tab 2: https://ik.imagekit.io/d36vkx7c33/img/course-details-tab-2.png?updatedAt=1732615650065
+Course Details Tab 3: https://ik.imagekit.io/d36vkx7c33/img/course-details-tab-3.png?updatedAt=1732615650108
+Course Details Tab 4: https://ik.imagekit.io/d36vkx7c33/img/course-details-tab-4.png?updatedAt=1732615651110
+Course Details Tab 5: https://ik.imagekit.io/d36vkx7c33/img/course-details-tab-5.png?updatedAt=1732615650285
+
+# About Section
+About Image: https://ik.imagekit.io/d36vkx7c33/img/about.jpg?updatedAt=1732615647594
+
+# Team/Trainers
+Trainer 1: https://ik.imagekit.io/d36vkx7c33/img/trainers/trainer-1.jpg?updatedAt=1732615653451
+Trainer 2: https://ik.imagekit.io/d36vkx7c33/img/trainers/trainer-2.jpg?updatedAt=1732615653654
+Trainer 3: https://ik.imagekit.io/d36vkx7c33/img/trainers/trainer-3.jpg?updatedAt=1732615653861
+
+# Events
+Event 1: https://ik.imagekit.io/d36vkx7c33/img/events-1.jpg?updatedAt=1732615650554
+Event 2: https://ik.imagekit.io/d36vkx7c33/img/events-2.jpg?updatedAt=1732615650691
+
+# Testimonials
+Testimonial 1: https://ik.imagekit.io/d36vkx7c33/img/testimonials/testimonials-1.jpg?updatedAt=1732615654020
+Testimonial 2: https://ik.imagekit.io/d36vkx7c33/img/testimonials/testimonials-2.jpg?updatedAt=1732615654373
+Testimonial 3: https://ik.imagekit.io/d36vkx7c33/img/testimonials/testimonials-3.jpg?updatedAt=1732615654444
+Testimonial 4: https://ik.imagekit.io/d36vkx7c33/img/testimonials/testimonials-4.jpg?updatedAt=1732615655569
+Testimonial 5: https://ik.imagekit.io/d36vkx7c33/img/testimonials/testimonials-5.jpg?updatedAt=1732615656934

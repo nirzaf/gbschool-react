@@ -1,0 +1,41 @@
+# GBS Website Color Palette
+
+## Primary Colors
+Primary Blue: #1E3A8A     /* Deep navy blue for main brand color */
+Secondary Blue: #2563EB   /* Bright blue for accents and CTAs */
+Light Blue: #DBEAFE      /* Soft blue for backgrounds */
+
+## Accent Colors
+Gold: #F59E0B           /* Warm accent for highlights */
+Royal Purple: #7C3AED   /* Rich purple for premium elements */
+Emerald: #059669       /* Fresh green for success states */
+
+## Neutral Colors
+Dark Gray: #1F2937     /* Text and headings */
+Medium Gray: #6B7280   /* Secondary text */
+Light Gray: #F3F4F6    /* Backgrounds */
+White: #FFFFFF        /* Pure white for contrast */
+
+## Gradient Combinations
+Blue Gradient: linear-gradient(135deg, #1E3A8A 0%, #2563EB 100%)
+Purple Gradient: linear-gradient(135deg, #7C3AED 0%, #2563EB 100%)
+Gold Gradient: linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%)
+
+## Semantic Colors
+Success: #059669      /* Green for positive actions */
+Warning: #F59E0B     /* Gold for warnings */
+Error: #DC2626       /* Red for errors */
+Info: #2563EB       /* Blue for information */
+
+## Alpha Variations
+Overlay Dark: rgba(17, 24, 39, 0.7)   /* For modal backgrounds */
+Overlay Light: rgba(255, 255, 255, 0.9) /* For card overlays */
+
+White: #ffffff
+White Beach: #f6f0e8
+Windsor Toffee: #cab293
+Midnight Mirage: #101b43
+Mythical Night: #1e2d5b
+Gun Powder: #45485c
+Your Shadow: #7b8095
+Muesli: #987b52
