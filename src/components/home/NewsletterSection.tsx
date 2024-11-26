@@ -49,14 +49,23 @@ const NewsletterSection: React.FC = () => {
               <button
                 type="submit"
                 disabled={status === 'loading'}
-                className={`px-8 py-3 rounded-lg font-semibold transition-all duration-300
-                  ${status === 'loading' 
-                    ? 'bg-[#cab293]/50 cursor-wait' 
-                    : 'bg-[#cab293] hover:bg-[#cab293]/90'
-                  }
-                  text-[#101b43]`}
+                className={`w-full md:w-auto px-6 py-3 rounded-lg font-semibold transition-all duration-300
+                  ${status === 'loading'
+                    ? 'bg-[#DBEAFE] cursor-wait text-[#1E3A8A]'
+                    : status === 'success'
+                    ? 'bg-[#059669] text-white'
+                    : status === 'error'
+                    ? 'bg-red-500 text-white'
+                    : 'bg-gradient-to-r from-[#1E3A8A] to-[#2563EB] text-white hover:from-[#7C3AED] hover:to-[#2563EB] shadow-md hover:shadow-lg'
+                  }`}
               >
-                {status === 'loading' ? 'Subscribing...' : 'Subscribe'}
+                {status === 'loading'
+                  ? 'Subscribing...'
+                  : status === 'success'
+                  ? 'Subscribed!'
+                  : status === 'error'
+                  ? 'Try Again'
+                  : 'Subscribe'}
               </button>
             </div>
             {status === 'success' && (

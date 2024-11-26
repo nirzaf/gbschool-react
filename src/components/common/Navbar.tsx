@@ -49,7 +49,7 @@ const Navbar: React.FC = () => {
                     isScrolled 
                       ? 'text-[#1E3A8A]'
                       : 'text-white'
-                  } px-3 py-1 rounded-lg border-2 border-[#F59E0B] hover:border-[#2563EB] transition-colors duration-300`}
+                  } px-3 py-1 rounded-lg border-2 border-[#DBEAFE] hover:border-[#2563EB] transition-colors duration-300`}
                 >
                   GBS
                 </span>
