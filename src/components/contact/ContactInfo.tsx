@@ -15,7 +15,7 @@ const ContactItem: React.FC<ContactItemProps> = ({ icon, title, text }) => (
     </div>
     <div>
       <h4 className="font-semibold text-[#101b43] mb-1">{title}</h4>
-      <p className="text-[#1e2d5b]">{text}</p>
+      <p className="text-[#1e2d5b] whitespace-pre-line">{text}</p>
     </div>
   </div>
 );
@@ -30,7 +30,7 @@ const ContactInfo: React.FC = () => {
         </svg>
       ),
       title: 'Our Location',
-      text: '291 DS Senanayake Veediya, Kandy, Sri Lanka, 20000'
+      text: '291 DS Senanayake Veediya, Kandy,\nSri Lanka, 20000'
     },
     {
       icon: (
