@@ -4,14 +4,11 @@ import path from 'path';
 
 export default defineConfig({
   plugins: [react()],
-  base: 'https://gbschool.cc/',
   root: '.',
   publicDir: 'assets',
   build: {
     outDir: 'dist',
-    assetsDir: 'assets',
-    emptyOutDir: true,
-    sourcemap: true
+    assetsDir: 'assets'
   },
   server: {
     port: 5173,
