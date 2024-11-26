@@ -34,7 +34,7 @@ const TopCourseCard: React.FC<TopCourseCardProps> = ({
           </div>
         </div>
         <div className="p-6 pt-4 border-t border-gray-100">
-          <button className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors duration-300 flex items-center justify-center space-x-2">
+          <button className="w-full bg-gradient-to-r from-[#1E3A8A] to-[#2563EB] text-white py-2 px-4 rounded-lg hover:from-[#7C3AED] hover:to-[#2563EB] shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-center space-x-2">
             <span>Enroll Now</span>
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />

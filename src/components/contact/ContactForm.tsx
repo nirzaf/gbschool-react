@@ -131,12 +131,12 @@ const ContactForm: React.FC = () => {
             disabled={status === 'loading'}
             className={`w-full px-8 py-3 rounded-lg font-semibold transition-all duration-300
               ${status === 'loading' 
-                ? 'bg-[#cab293]/70 cursor-wait' 
+                ? 'bg-[#DBEAFE] cursor-wait text-[#1E3A8A]' 
                 : status === 'success'
-                ? 'bg-green-500 text-white'
+                ? 'bg-[#059669] text-white'
                 : status === 'error'
                 ? 'bg-red-500 text-white'
-                : 'bg-[#cab293] hover:bg-[#cab293]/90 text-[#101b43]'
+                : 'bg-gradient-to-r from-[#1E3A8A] to-[#2563EB] text-white hover:from-[#7C3AED] hover:to-[#2563EB] shadow-md hover:shadow-lg'
               }`}
           >
             {status === 'loading' 
