@@ -119,7 +119,7 @@ const AppointmentCalendar: React.FC = () => {
     setErrorMessage('');
     
     try {
-      const { error, data } = await db.contacts.submit({
+      const { error } = await db.contacts.submit({
         name: formData.name,
         email: formData.email,
         phone: formData.phone,

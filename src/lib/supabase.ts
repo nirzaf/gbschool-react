@@ -224,7 +224,7 @@ export const db = {
       
       // If no session, create an anonymous session
       if (!session?.session) {
-        const { data: anonSession, error: anonError } = await supabase.auth.signInWithPassword({
+        const { error: anonError } = await supabase.auth.signInWithPassword({
           email: import.meta.env.VITE_ANON_EMAIL || 'anonymous@example.com',
           password: import.meta.env.VITE_ANON_PASSWORD || 'anonymous'
         });
