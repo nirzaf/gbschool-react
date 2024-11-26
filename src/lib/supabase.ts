@@ -6,6 +6,8 @@ declare global {
   interface ImportMetaEnv {
     readonly VITE_SUPABASE_URL: string
     readonly VITE_SUPABASE_ANON_KEY: string
+    readonly VITE_ANON_EMAIL: string
+    readonly VITE_ANON_PASSWORD: string
   }
 }
 
@@ -16,7 +18,12 @@ if (!supabaseUrl || !supabaseAnonKey) {
   throw new Error('Missing Supabase environment variables');
 }
 
-export const supabase = createClient(supabaseUrl, supabaseAnonKey);
+export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
+  auth: {
+    persistSession: true,
+    autoRefreshToken: true
+  }
+});
 
 // Type definitions for your database tables
 export type Course = {
@@ -212,18 +219,56 @@ export const db = {
 
   contacts: {
     async submit(data: Omit<ContactSubmission, 'id' | 'status' | 'created_at'>): Promise<{ error: any; data: any }> {
-      const { error, data: result } = await supabase
-        .from('contact_submissions')
-        .insert([
-          {
-            ...data,
-            status: 'pending'
-          }
-        ])
-        .select()
-        .single();
+      // Get the current session
+      const { data: session } = await supabase.auth.getSession();
+      
+      // If no session, create an anonymous session
+      if (!session?.session) {
+        const { data: anonSession, error: anonError } = await supabase.auth.signInWithPassword({
+          email: import.meta.env.VITE_ANON_EMAIL || 'anonymous@example.com',
+          password: import.meta.env.VITE_ANON_PASSWORD || 'anonymous'
+        });
+        
+        if (anonError) {
+          console.error('Authentication error:', anonError);
+          return { error: { message: 'Failed to authenticate submission' }, data: null };
+        }
+      }
 
-      return { error, data: result };
+      try {
+        const { error, data: result } = await supabase
+          .from('contact_submissions')
+          .insert([
+            {
+              ...data,
+              status: 'pending'
+            }
+          ])
+          .select()
+          .single();
+
+        if (error) {
+          console.error('Submission error:', error);
+          return { 
+            error: { 
+              message: 'Failed to submit form. Please try again or contact support.',
+              details: error
+            }, 
+            data: null 
+          };
+        }
+
+        return { error: null, data: result };
+      } catch (error: any) {
+        console.error('Unexpected error:', error);
+        return { 
+          error: { 
+            message: 'An unexpected error occurred. Please try again.',
+            details: error
+          }, 
+          data: null 
+        };
+      }
     },
 
     async getSubmissions(): Promise<{ error: any; data: ContactSubmission[] | null }> {

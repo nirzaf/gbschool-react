@@ -23,6 +23,7 @@ const AppointmentCalendar: React.FC = () => {
     phone: ''
   });
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState<string>('');
 
   // Generate random booked slots for the week when component mounts
   useEffect(() => {
@@ -110,14 +111,15 @@ const AppointmentCalendar: React.FC = () => {
     e.preventDefault();
     
     if (!selectedSlot) {
-      alert('Please select a time slot');
+      setErrorMessage('Please select a time slot');
       return;
     }
 
     setStatus('loading');
+    setErrorMessage('');
     
     try {
-      const { error } = await db.contacts.submit({
+      const { error, data } = await db.contacts.submit({
         name: formData.name,
         email: formData.email,
         phone: formData.phone,
@@ -125,7 +127,12 @@ const AppointmentCalendar: React.FC = () => {
         submission_type: 'appointment'
       });
 
-      if (error) throw error;
+      if (error) {
+        console.error('Error booking appointment:', error);
+        setStatus('error');
+        setErrorMessage(error.message || 'Failed to book appointment. Please try again.');
+        return;
+      }
       
       setStatus('success');
       // Reset form
@@ -137,11 +144,18 @@ const AppointmentCalendar: React.FC = () => {
       setSelectedSlot(null);
       
       // Reset status after 3 seconds
-      setTimeout(() => setStatus('idle'), 3000);
+      setTimeout(() => {
+        setStatus('idle');
+        setErrorMessage('');
+      }, 3000);
     } catch (error: any) {
       console.error('Error booking appointment:', error);
       setStatus('error');
-      setTimeout(() => setStatus('idle'), 3000);
+      setErrorMessage('An unexpected error occurred. Please try again.');
+      setTimeout(() => {
+        setStatus('idle');
+        setErrorMessage('');
+      }, 3000);
     }
   };
 
@@ -291,6 +305,13 @@ const AppointmentCalendar: React.FC = () => {
               : 'Book Appointment'
             }
           </button>
+
+          {/* Error Message */}
+          {errorMessage && (
+            <p className="text-red-600 text-sm text-center mt-2">
+              {errorMessage}
+            </p>
+          )}
 
           {/* Status Message */}
           {status === 'success' && (
