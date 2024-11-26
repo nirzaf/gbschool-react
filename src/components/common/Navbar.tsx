@@ -41,18 +41,17 @@ const Navbar: React.FC = () => {
               <img 
                 src="https://ik.imagekit.io/d36vkx7c33/img/gbs-logo.png" 
                 alt="GBS Logo" 
-                className="h-12 w-auto"
+                className="h-12 w-auto rounded-xl"
               />
               <span className="text-2xl font-bold">
-                <span className={`${
-                  isScrolled 
-                    ? 'text-[#101b43]'
-                    : 'text-white'
-                }`}>
-                  GB
-                </span>
-                <span className="text-[#cab293]">
-                  School
+                <span 
+                  className={`${
+                    isScrolled 
+                      ? 'text-[#1E3A8A]'
+                      : 'text-white'
+                  } px-3 py-1 rounded-lg border-2 border-[#F59E0B] hover:border-[#2563EB] transition-colors duration-300`}
+                >
+                  GBS
                 </span>
               </span>
             </Link>
