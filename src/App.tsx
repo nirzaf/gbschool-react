@@ -15,6 +15,7 @@ import Courses from './components/Courses';
 import CourseDetail from './components/courses/CourseDetail';
 import Navbar from './components/common/Navbar';
 import Footer from './components/common/Footer';
+import HubspotScript from './components/common/HubspotScript';
 
 const ErrorBoundary = () => {
   const error = useRouteError();
@@ -59,6 +60,7 @@ const Layout = () => (
       <Outlet />
     </main>
     <Footer />
+    <HubspotScript />
   </div>
 );
 
