@@ -18,7 +18,7 @@ const Home: React.FC = () => {
     <div>
       {/* Hero Section */}
       <section
-        className="relative min-h-screen flex items-center justify-center bg-cover bg-center"
+        className="relative min-h-[80vh] flex items-center justify-center bg-cover bg-center"
         style={{
           backgroundImage: 'url("https://ik.imagekit.io/d36vkx7c33/hero-image-gbs.jpg?updatedAt=1732635978259")',
         }}
