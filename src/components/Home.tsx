@@ -67,12 +67,6 @@ const Home: React.FC = () => {
               data-aos="fade-up"
               data-aos-delay="600"
             >
-              <a
-                href="/courses"
-                className="inline-block bg-[#F59E0B] text-white font-semibold px-8 py-4 rounded-full hover:bg-[#D97706] transition-all duration-300 transform hover:scale-105"
-              >
-                Explore Our Programs
-              </a>
             </div>
           </div>
         </div>
