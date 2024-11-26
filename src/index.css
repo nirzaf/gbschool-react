@@ -84,21 +84,6 @@ html {
   transform-origin: left;
 }
 
-/* Hero section gradient */
-.hero-gradient {
-  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-}
-
-/* Glowing gold text effect */
-.gold-text {
-  color: #F59E0B;  /* Using the Gold accent color from our palette */
-  font-weight: bold;
-  text-shadow: 
-    0 0 1px rgba(245, 158, 11, 0.8),
-    0 0 2px rgba(245, 158, 11, 0.8),
-    0 0 3px rgba(245, 158, 11, 0.6);
-}
-
 @media (forced-colors: active) {
   /* Replace -ms-high-contrast styles with forced-colors mode */
   a:hover {
