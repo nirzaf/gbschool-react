@@ -1,5 +1,5 @@
 # Simple workflow for deploying static content to Pages
-name: Deploy static content to Pages
+name: Deploy React + Vite to GitHub Pages
 
 on:
   # Runs on pushes targeting the default branch
@@ -19,7 +19,7 @@ permissions:
 # However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
 concurrency:
   group: "pages"
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   # Single deploy job since we're just deploying
@@ -31,16 +31,29 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-      - name: Install Dependencies
+      - name: Set up Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'npm'
+      - name: Install dependencies
         run: npm install
       - name: Build
         run: npm run build
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        env:
+          VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
+          VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
         with:
-          path: 'dist'
+          static_site_generator: vite
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: './dist'
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v2
+      - name: Configure custom domain
+        run: |
+          echo "gbschool.cc" > dist/CNAME
