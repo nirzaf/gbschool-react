@@ -1,13 +1,13 @@
 import React from 'react';
 
 interface ApproachCardProps {
-  icon: string;
+  icon: React.ReactNode;
   title: string;
   description: string;
   delay: number;
 }
 
-const ApproachCard: React.FC<ApproachCardProps> = ({ icon, title, description, delay }) => (
+export const ApproachCard: React.FC<ApproachCardProps> = ({ icon, title, description, delay }) => (
   <div 
     className="bg-white p-8 rounded-2xl shadow-lg transform hover:-translate-y-2 transition-transform duration-300" 
     data-aos="fade-up" 

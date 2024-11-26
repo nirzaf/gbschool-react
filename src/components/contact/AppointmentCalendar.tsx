@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { format, addDays, setHours, setMinutes, isWeekend, startOfWeek, endOfWeek, isSameDay } from 'date-fns';
+import { format, addDays, setHours, setMinutes, startOfWeek, isSameDay } from 'date-fns';
 import { db } from '../../lib/supabase';
 
 interface TimeSlot {
@@ -29,7 +29,6 @@ const AppointmentCalendar: React.FC = () => {
     const generateRandomBookedSlots = () => {
       const slots: Date[] = [];
       const weekStart = startOfWeek(new Date(), { weekStartsOn: 1 }); // Start from Monday
-      const weekEnd = endOfWeek(weekStart, { weekStartsOn: 1 });
       
       // Generate 4-5 random booked slots
       const numberOfSlots = Math.floor(Math.random() * 2) + 4; // 4 or 5 slots
