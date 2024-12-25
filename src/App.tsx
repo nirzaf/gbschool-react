@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { 
-  createBrowserRouter,
+  createHashRouter,
   RouterProvider,
   createRoutesFromElements,
   Route,
   Outlet,
   useRouteError,
-  isRouteErrorResponse
+  isRouteErrorResponse,
+  useNavigate
 } from 'react-router-dom';
+
 import Home from './components/Home';
 import About from './components/About';
 import Contact from './components/Contact';
@@ -28,7 +30,7 @@ const ErrorBoundary = () => {
             {error.status} {error.statusText}
           </h1>
           <p className="text-gray-600 mb-4">{error.data}</p>
-          <a href="/" className="text-blue-500 hover:text-blue-700">
+          <a href="#/" className="text-blue-500 hover:text-blue-700">
             Return to Home
           </a>
         </div>
@@ -45,12 +47,23 @@ const ErrorBoundary = () => {
         <p className="text-gray-600 mb-4">
           We're sorry, but there was an unexpected error.
         </p>
-        <a href="/" className="text-blue-500 hover:text-blue-700">
+        <a href="#/" className="text-blue-500 hover:text-blue-700">
           Return to Home
         </a>
       </div>
     </div>
   );
+};
+
+// Redirect component for handling undefined routes
+const RedirectToHome = () => {
+  const navigate = useNavigate();
+  
+  useEffect(() => {
+    navigate('/');
+  }, [navigate]);
+
+  return null;
 };
 
 const Layout = () => (
@@ -64,7 +77,7 @@ const Layout = () => (
   </div>
 );
 
-const router = createBrowserRouter(
+const router = createHashRouter(
   createRoutesFromElements(
     <Route element={<Layout />} errorElement={<ErrorBoundary />}>
       <Route path="/" element={<Home />} />
@@ -72,6 +85,8 @@ const router = createBrowserRouter(
       <Route path="/contact" element={<Contact />} />
       <Route path="/courses" element={<Courses />} />
       <Route path="/courses/:courseSlug" element={<CourseDetail />} />
+      {/* Catch-all route that redirects to home */}
+      <Route path="*" element={<RedirectToHome />} />
     </Route>
   )
 );
