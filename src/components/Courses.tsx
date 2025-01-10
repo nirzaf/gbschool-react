@@ -168,45 +168,89 @@ const Courses: React.FC = () => {
         </div>
       </section>
 
-      {/* Featured Short Courses */}
-      <section className="py-16 bg-gradient-to-br from-white to-[#f6f0e8]">
-        <div className="container mx-auto px-4">
-          <h2 
-            className="text-3xl font-bold text-center mb-12 bg-gradient-to-r from-[#101b43] to-[#1e2d5b] bg-clip-text text-transparent"
-            data-aos="fade-up"
-          >
-            Featured Short Courses
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {featuredCourses.map((course, index) => (
-              <div
-                key={index}
-                data-aos="fade-up"
-                data-aos-delay={index * 100}
-                className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:scale-[1.02]"
-              >
-                <div className="relative">
-                  <img
-                    src={course.image}
-                    alt={course.title}
-                    className="w-full h-48 object-cover"
-                  />
-                  <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-semibold text-[#1e2d5b] shadow-lg">
-                    {course.price}
-                  </div>
-                </div>
-                <div className="p-6">
-                  <span className="text-sm font-semibold text-[#cab293]">{course.category}</span>
-                  <h3 className="text-xl font-bold text-[#101b43] mt-2">{course.title}</h3>
-                  <button className="mt-4 w-full bg-gradient-to-r from-[#cab293] to-[#f6f0e8] text-[#101b43] py-2 rounded-lg transition-all duration-300 hover:shadow-lg font-medium">
-                    View Details
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+                      {/* Featured Short Courses */}
+                      <section className="py-20 relative bg-gradient-to-b from-white to-[#F3F4F6]">
+                      {/* Decorative background pattern */}
+                      <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#101b43_1px,transparent_1px)] [background-size:16px_16px]" />
+                      
+                      <div className="container mx-auto px-4 relative">
+                        <div className="text-center mb-16" data-aos="fade-up">
+                        <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-[#101b43] to-[#1e2d5b] bg-clip-text text-transparent">
+                          Featured Short Courses
+                        </h2>
+                        <p className="text-[#6B7280] max-w-2xl mx-auto text-lg">
+                          Enhance your skills with our intensive short courses designed for quick, effective learning
+                        </p>
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        {featuredCourses.map((course, index) => (
+                          <div
+                          key={index}
+                          data-aos="fade-up"
+                          data-aos-delay={index * 100}
+                          data-aos-duration="800"
+                          className="group relative bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
+                          >
+                        <div className="relative h-64 overflow-hidden">
+                          <img
+                          src={course.image}
+                          alt={course.title}
+                          className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                          />
+                          <div 
+                          className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" 
+                          />
+                          <div 
+                          className="absolute top-4 right-4 bg-white/95 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-semibold text-[#1e2d5b] shadow-lg transform -translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300"
+                          >
+                          {course.price}
+                          </div>
+                        </div>
+                        
+                        <div className="p-8">
+                          <div className="flex items-center mb-4">
+                          <span 
+                            className="inline-flex items-center px-3 py-1.5 rounded-full text-sm font-medium bg-gradient-to-r from-[#F3F4F6] to-[#E5E7EB] text-[#101b43] shadow-sm group-hover:shadow-md transition-shadow duration-300"
+                          >
+                            {course.category}
+                          </span>
+                          <div className="ml-auto flex items-center text-[#F59E0B]">
+                            <span className="mr-1">4.5</span>
+                            <svg className="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                            </svg>
+                          </div>
+                          </div>
+                          
+                          <h3 className="text-2xl font-bold text-[#101b43] mb-3 group-hover:text-[#1e2d5b] transition-colors duration-300">
+                          {course.title}
+                          </h3>
+                          
+                          <div className="flex items-center mb-6 text-[#6B7280] text-sm space-x-6">
+                          <div className="flex items-center">
+                            <svg className="w-5 h-5 mr-2 text-[#101b43] group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span>8 weeks</span>
+                          </div>
+                          <div className="flex items-center">
+                            <svg className="w-5 h-5 mr-2 text-[#101b43] group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                            </svg>
+                            <span>125 students</span>
+                          </div>
+                          </div>
+                          
+                          <button className="w-full bg-gradient-to-r from-[#101b43] to-[#1e2d5b] text-white py-3.5 rounded-xl transition-all duration-300 hover:shadow-lg transform hover:scale-[1.02] active:scale-[0.98] hover:from-[#1e2d5b] hover:to-[#101b43] font-medium">
+                          Enroll Now
+                          </button>
+                        </div>
+                        </div>
+                      ))}
+                      </div>
+                    </div>
+                    </section>
     </div>
   );
 };
