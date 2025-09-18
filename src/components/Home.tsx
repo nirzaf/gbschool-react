@@ -3,6 +3,9 @@ import FeaturesSection from './home/FeaturesSection';
 import TestimonialsSection from './home/TestimonialsSection';
 import NewsletterSection from './home/NewsletterSection';
 import HeroSection from './home/HeroSection';
+import VisionMissionSection from './home/VisionMissionSection';
+import AboutSection from './home/AboutSection';
+import aboutImage from '../assets/about.jpg';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
@@ -18,6 +21,12 @@ const Home: React.FC = () => {
     <div>
       {/* Hero Section */}
       <HeroSection />
+
+      {/* About Section */}
+      <AboutSection aboutImage={aboutImage} />
+
+      {/* Vision and Mission Section */}
+      <VisionMissionSection />
 
       {/* Features Section */}
       <div className="bg-gradient-to-br from-white to-[#f6f0e8]">

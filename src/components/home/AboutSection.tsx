@@ -18,13 +18,10 @@ const AboutSection: React.FC<AboutSectionProps> = ({ aboutImage }) => {
           </div>
           <div className="lg:w-1/2" data-aos="fade-left">
             <h2 className="text-3xl font-bold text-gray-800 mb-6">
-              About Global Business School
+              Global Business School (GBS) Kandy: Shaping the Future of Business in Sri Lanka
             </h2>
             <p className="text-gray-600 mb-6 leading-relaxed">
-              Global Business School is a premier educational institution dedicated to empowering students with professional qualifications and practical skills. Our commitment to excellence and industry-relevant education sets us apart in the field of professional education.
-            </p>
-            <p className="text-gray-600 mb-8 leading-relaxed">
-              We offer a wide range of professional courses including ACCA, Revit, and specialized accounting programs. Our experienced faculty and modern teaching methodologies ensure that students receive the highest quality education and practical training.
+              At <strong>Global Business School (GBS) Kandy</strong>, we are dedicated to cultivating the next generation of business leaders and innovators. Situated in the heart of Sri Lanka's cultural capital, GBS Kandy stands as a beacon of excellence, specializing in providing a world-class education that prepares students to excel in the dynamic global marketplace while staying rooted in local relevance.
             </p>
             <a
               href="/about"
