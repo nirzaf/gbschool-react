@@ -1,0 +1,35 @@
+name: Build and Backup Master Branch
+
+on:
+  pull_request:
+    types: [closed]
+    branches: [main]
+
+jobs:
+  build_and_backup:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          ref: main
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18' # Or your project's Node.js version
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build project
+        run: npm run build
+
+      - name: Create and push backup branch
+        run: |
+          TIMESTAMP=$(date +'%Y-%m-%d-%H-%M-%S')
+          BRANCH_NAME="master-backup-${TIMESTAMP}"
+          git checkout -b $BRANCH_NAME
+          git push origin $BRANCH_NAME
