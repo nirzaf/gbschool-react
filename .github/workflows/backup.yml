@@ -9,6 +9,8 @@ jobs:
   build_and_backup:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
+    permissions:
+      contents: write # Grant write permission to the GITHUB_TOKEN
 
     steps:
       - name: Checkout repository
@@ -19,7 +21,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18' # Or your project's Node.js version
+          node-version: '18'
 
       - name: Install dependencies
         run: npm install
@@ -31,5 +33,7 @@ jobs:
         run: |
           TIMESTAMP=$(date +'%Y-%m-%d-%H-%M-%S')
           BRANCH_NAME="master-backup-${TIMESTAMP}"
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git checkout -b $BRANCH_NAME
           git push origin $BRANCH_NAME
