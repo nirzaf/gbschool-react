@@ -3,25 +3,25 @@ import React from 'react';
 const TestimonialsSection: React.FC = () => {
   const testimonials = [
     {
-      name: 'Sarah Johnson',
-      role: 'ACCA Graduate',
-      image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-      quote: "The support and guidance I received at GBS were invaluable. The faculty's expertise and practical approach helped me clear all my ACCA papers in the first attempt.",
-      company: 'Senior Accountant at EY'
+      name: 'Kasun Ratnayake',
+      role: 'Top ACCA Achiever',
+      image: 'https://cdn-icons-png.flaticon.com/512/149/149071.png',
+      quote: "The exceptional mentorship and cutting-edge resources at GBS propelled me to the top of my ACCA class. I am now thriving in a global finance career.",
+      company: 'Lead Analyst at Goldman Sachs'
     },
     {
-      name: 'Michael Chen',
-      role: 'CIMA Student',
-      image: 'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-      quote: "The flexible learning options and comprehensive study materials have made my CIMA journey much smoother. The practical insights from industry experts are priceless.",
-      company: 'Finance Analyst at Deloitte'
+      name: 'Nuwan Rajapakshe',
+      role: 'CIMA Prizewinner',
+      image: 'https://cdn-icons-png.flaticon.com/512/149/149071.png',
+      quote: "GBS's dynamic learning environment and world-class faculty were instrumental in my CIMA success. The strategic insights I gained are invaluable in my consulting role.",
+      company: 'Senior Consultant at McKinsey'
     },
     {
-      name: 'Emma Wilson',
-      role: 'AAT Graduate',
-      image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-      quote: "Starting with AAT at GBS was the best decision for my career. The structured learning path and career guidance helped me secure a great position right after graduation.",
-      company: 'Accounts Manager at PwC'
+      name: 'Abdul Shajahan',
+      role: 'AAT High Scorer',
+      image: 'https://cdn-icons-png.flaticon.com/512/149/149071.png',
+      quote: "The comprehensive AAT program at GBS laid the perfect foundation for my career. The practical skills and industry connections I developed led me to a dream job at a top tech company.",
+      company: 'Financial Controller at Google'
     }
   ];
 
