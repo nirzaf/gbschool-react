@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import HeroSection from './courses/HeroSection';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -95,6 +96,10 @@ const Courses: React.FC = () => {
 
   return (
     <div className="bg-[#F3F4F6]">
+      <Helmet>
+        <title>Courses | Global Business School</title>
+        <meta name="description" content="Explore the wide range of professional courses offered at Global Business School, including ACCA, Revit, and various accounting diplomas." />
+      </Helmet>
       <HeroSection 
         title="Professional Courses" 
         description="Advance your career with our industry-recognized professional qualifications"
@@ -113,13 +118,13 @@ const Courses: React.FC = () => {
                 <div className="relative group">
                   <img
                     src={course.image}
-                    alt={course.title}
+                    alt={`Image of ${course.title} course`}
                     className="w-full h-64 object-cover transition-all duration-500 group-hover:scale-110"
                   />
                   {course.hoverImage && (
                     <img
                       src={course.hoverImage}
-                      alt={`${course.title} Alternative`}
+                      alt={`Image of ${course.title} course, alternative view`}
                       className="absolute inset-0 w-full h-64 object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                     />
                   )}
@@ -195,7 +200,7 @@ const Courses: React.FC = () => {
                         <div className="relative h-64 overflow-hidden">
                           <img
                           src={course.image}
-                          alt={course.title}
+                          alt={`Image of ${course.title} course`}
                           className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
                           />
                           <div 

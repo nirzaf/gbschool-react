@@ -1,13 +1,14 @@
 import React, { useEffect } from 'react';
 import { 
-  createHashRouter,
+  createBrowserRouter,
   RouterProvider,
   createRoutesFromElements,
   Route,
   Outlet,
   useRouteError,
   isRouteErrorResponse,
-  useNavigate
+  useNavigate,
+  Link
 } from 'react-router-dom';
 
 import Home from './components/Home';
@@ -30,9 +31,9 @@ const ErrorBoundary = () => {
             {error.status} {error.statusText}
           </h1>
           <p className="text-gray-600 mb-4">{error.data}</p>
-          <a href="#/" className="text-blue-500 hover:text-blue-700">
+          <Link to="/" className="text-blue-500 hover:text-blue-700">
             Return to Home
-          </a>
+          </Link>
         </div>
       </div>
     );
@@ -47,9 +48,9 @@ const ErrorBoundary = () => {
         <p className="text-gray-600 mb-4">
           We're sorry, but there was an unexpected error.
         </p>
-        <a href="#/" className="text-blue-500 hover:text-blue-700">
+        <Link to="/" className="text-blue-500 hover:text-blue-700">
           Return to Home
-        </a>
+        </Link>
       </div>
     </div>
   );
@@ -77,7 +78,7 @@ const Layout = () => (
   </div>
 );
 
-const router = createHashRouter(
+const router = createBrowserRouter(
   createRoutesFromElements(
     <Route element={<Layout />} errorElement={<ErrorBoundary />}>
       <Route path="/" element={<Home />} />

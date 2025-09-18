@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
+import { Helmet } from 'react-helmet-async';
 
 const CourseDetail: React.FC = () => {
   const { courseSlug } = useParams<{ courseSlug: string }>();
   const [courseContent, setCourseContent] = useState<string>('');
+  const [courseTitle, setCourseTitle] = useState<string>('');
+  const [courseDescription, setCourseDescription] = useState<string>('');
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -24,12 +27,24 @@ const CourseDetail: React.FC = () => {
           return false;
         });
 
-        // Remove image markdown syntax from the content
-        const contentWithoutImages = courseSection?.replace(/!\[.*?\]\(.*?\)/g, '') || 'Course not found';
-        setCourseContent(contentWithoutImages);
+        if (courseSection) {
+          const titleMatch = courseSection.match(/##\s+(.+)/);
+          const title = titleMatch ? titleMatch[1] : 'Course';
+          setCourseTitle(title);
+
+          const contentWithoutImages = courseSection.replace(/!\[.*?\]\(.*?\)/g, '');
+          const description = contentWithoutImages.split('\n').find(line => line.trim().length > 0 && !line.startsWith('#')) || '';
+          setCourseDescription(description.substring(0, 160));
+          setCourseContent(contentWithoutImages);
+        } else {
+          setCourseContent('Course not found');
+          setCourseTitle('Course Not Found');
+        }
+
       } catch (error) {
         console.error('Error loading course content:', error);
         setCourseContent('Error loading course content');
+        setCourseTitle('Error');
       } finally {
         setLoading(false);
       }
@@ -55,6 +70,10 @@ const CourseDetail: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 pt-4">
+      <Helmet>
+        <title>{`${courseTitle} | Global Business School`}</title>
+        <meta name="description" content={courseDescription} />
+      </Helmet>
       <div className="container mx-auto px-4 py-8">
         <Link
           to="/courses"

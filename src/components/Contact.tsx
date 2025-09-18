@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import HeroSection from './contact/HeroSection';
 import ContactForm from './contact/ContactForm';
 import LocationMap from './contact/LocationMap';
@@ -7,6 +8,10 @@ import ContactInfo from './contact/ContactInfo';
 const Contact: React.FC = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-white to-[#f6f0e8]">
+      <Helmet>
+        <title>Contact Us | Global Business School</title>
+        <meta name="description" content="Get in touch with Global Business School in Kandy. Find our address, phone number, and email, or use our contact form to send us a message." />
+      </Helmet>
       {/* Hero Section */}
       <div className="relative">
         <HeroSection />
