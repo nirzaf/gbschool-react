@@ -6,7 +6,7 @@ The website provides detailed information about the school's courses, mission, a
 
 ### Live Demo
 
-[Link to the live website]
+[Link to the live website](https://gbschool.cc)
 
 *Note: You can add the live URL of your deployed application here.*
 
