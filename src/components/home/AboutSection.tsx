@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 interface AboutSectionProps {
   aboutImage: string;
@@ -26,12 +27,12 @@ const AboutSection: React.FC<AboutSectionProps> = ({ aboutImage }) => {
             <p className="text-gray-600 mb-8 leading-relaxed">
               We offer a wide range of professional courses including ACCA, Revit, and specialized accounting programs. Our experienced faculty and modern teaching methodologies ensure that students receive the highest quality education and practical training.
             </p>
-            <a
-              href="/about"
+            <Link
+              to="/about"
               className="bg-blue-600 text-white py-3 px-8 rounded-full text-lg font-semibold hover:bg-blue-700 transition duration-300 inline-block"
             >
               Learn More About Us
-            </a>
+            </Link>
           </div>
         </div>
       </div>

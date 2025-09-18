@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import FeaturesSection from './home/FeaturesSection';
 import TestimonialsSection from './home/TestimonialsSection';
 import NewsletterSection from './home/NewsletterSection';
@@ -16,6 +17,10 @@ const Home: React.FC = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Global Business School | Home</title>
+        <meta name="description" content="Welcome to Global Business School, Kandy. We offer a range of professional courses to help you achieve your career goals." />
+      </Helmet>
       {/* Hero Section */}
       <HeroSection />
 
