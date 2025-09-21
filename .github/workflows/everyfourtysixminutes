@@ -1,0 +1,15 @@
+name: Call Groq QTS Query ~950/mo
+
+on:
+  schedule:
+    - cron: '*/46 * * * *'
+  workflow_dispatch:
+
+jobs:
+  call-api-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call Supabase GET Function 'groq-api'
+        run: |
+          curl -f -L -X GET 'https://ciyoandzjezgqxjpcrin.supabase.co/functions/v1/groq-api' \
+            -H "Authorization: Bearer ${{ secrets.SUPABASE_ANON_KEY }}"
