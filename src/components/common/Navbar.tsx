@@ -29,13 +29,6 @@ const Navbar: React.FC = () => {
             {/* Logo */}
             <Link to="/" className="flex items-center space-x-3">
               <Logo className="h-12 w-auto" />
-              <span className="text-2xl font-bold">
-                <span
-                  className={`text-primary px-3 py-1 rounded-lg border-2 border-surface-light hover:border-primary-light transition-colors duration-300`}
-                >
-                  GBS
-                </span>
-              </span>
             </Link>
 
             {/* Desktop Navigation */}
@@ -44,10 +37,11 @@ const Navbar: React.FC = () => {
                 <Link
                   key={path}
                   to={path}
-                  className={`text-sm font-medium transition-all duration-300 ${isActive(path)
-                    ? "text-accent-purple border-b-2 border-accent-purple"
-                    : "text-neutral-dark hover:text-primary-light"
-                    }`}
+                  className={`text-sm font-medium transition-all duration-300 ${
+                    isActive(path)
+                      ? "text-accent-purple border-b-2 border-accent-purple"
+                      : "text-neutral-dark hover:text-primary-light"
+                  }`}
                 >
                   {label}
                 </Link>
@@ -98,10 +92,11 @@ const Navbar: React.FC = () => {
                   <Link
                     key={path}
                     to={path}
-                    className={`block py-2 text-sm font-medium ${isActive(path)
-                      ? "text-accent-purple bg-surface-light rounded-lg px-4"
-                      : "text-neutral-dark hover:text-primary-light hover:bg-neutral-light px-4 rounded-lg"
-                      }`}
+                    className={`block py-2 text-sm font-medium ${
+                      isActive(path)
+                        ? "text-accent-purple bg-surface-light rounded-lg px-4"
+                        : "text-neutral-dark hover:text-primary-light hover:bg-neutral-light px-4 rounded-lg"
+                    }`}
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     {label}
@@ -123,7 +118,9 @@ const Navbar: React.FC = () => {
             {/* UGC Badge with Animation */}
             <div className="flex items-center space-x-2 whitespace-nowrap">
               <UGCBadge />
-              <span className="font-semibold hidden sm:inline">UGC Approved</span>
+              <span className="font-semibold hidden sm:inline">
+                UGC Approved
+              </span>
             </div>
             <div className="hidden md:block h-4 w-px bg-white/30"></div>
             <div className="flex items-center space-x-2 whitespace-nowrap">
