@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GBS Logo Recreation</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f5f5f5;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Start of SVG Logo -->
+        <svg viewBox="0 0 500 520" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+            <defs>
+                <!-- Define Gradients and Styles -->
+                <style>
+                    .dark-blue {
+                        fill: #001e60;
+                    }
+
+                    .gold-stroke {
+                        stroke: #d4af37;
+                        stroke-width: 3;
+                    }
+
+                    .gold-fill {
+                        fill: #d4af37;
+                    }
+
+                    .grid-lines {
+                        fill: none;
+                        stroke: #001e60;
+                        stroke-width: 0.5;
+                        opacity: 0.3;
+                    }
+
+                    .text-sub {
+                        font-family: Arial, Helvetica, sans-serif;
+                        font-weight: 700;
+                    }
+
+                    .text-motto {
+                        font-family: "Times New Roman", Times, serif;
+                        font-style: italic;
+                    }
+                </style>
+
+                <!-- 3D Sphere Highlight Gradient (Light source top-left) -->
+                <radialGradient id="sphereGrad" cx="30%" cy="30%" r="70%" fx="30%" fy="30%">
+                    <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+                    <stop offset="70%" style="stop-color:#e6eef5;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#b0c4de;stop-opacity:1" />
+                </radialGradient>
+
+                <!-- Rim Shadow for extra depth -->
+                <radialGradient id="rimShadow" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+                    <stop offset="85%" style="stop-color:#001e60;stop-opacity:0" />
+                    <stop offset="100%" style="stop-color:#001e60;stop-opacity:0.2" />
+                </radialGradient>
+
+                <!-- Clip path to keep everything strictly inside the circle -->
+                <clipPath id="globeClip">
+                    <circle cx="0" cy="0" r="55" />
+                </clipPath>
+            </defs>
+
+            <!-- GLOBE SECTION -->
+            <g transform="translate(250, 140)">
+                <!-- 1. Base Sphere with Gradient -->
+                <circle cx="0" cy="0" r="55" fill="url(#sphereGrad)" stroke="#001e60" stroke-width="1.5" />
+
+                <!-- 2. Content clipped to sphere (Grid + Continents) -->
+                <g clip-path="url(#globeClip)">
+
+                    <!-- Grid Lines (Behind continents) -->
+                    <!-- Latitudes -->
+                    <ellipse cx="0" cy="0" rx="55" ry="18" class="grid-lines" />
+                    <ellipse cx="0" cy="0" rx="55" ry="36" class="grid-lines" />
+                    <line x1="-55" y1="0" x2="55" y2="0" class="grid-lines" />
+                    <!-- Longitudes -->
+                    <ellipse cx="0" cy="0" rx="18" ry="55" class="grid-lines" />
+                    <ellipse cx="0" cy="0" rx="36" ry="55" class="grid-lines" />
+                    <line x1="0" y1="-55" x2="0" y2="55" class="grid-lines" />
+
+                    <!-- Detailed Landmasses -->
+                    <g fill="#001e60">
+                        <!-- Australia -->
+                        <path
+                            d="M 18 28 C 22 25, 30 25, 35 30 C 38 34, 38 40, 32 44 C 28 46, 20 45, 15 40 C 12 38, 15 32, 18 28 Z" />
+                        <!-- SE Asia / Indonesia -->
+                        <path d="M -2 18 C 2 15, 10 15, 15 20 C 18 22, 12 25, 8 22 C 5 20, 0 20, -2 18 Z" />
+                        <path d="M 20 12 C 25 10, 30 14, 28 18 C 26 20, 22 16, 20 12 Z" />
+                        <!-- Mainland Asia -->
+                        <path
+                            d="M -45 -15 C -35 -25, -20 -30, -10 -22 C 0 -18, 10 -22, 18 -12 C 22 -8, 25 -2, 20 8 C 15 12, 5 10, -5 5 C -15 0, -25 5, -35 -5 C -40 -10, -45 -12, -45 -15 Z" />
+                        <!-- Japan/Islands -->
+                        <path d="M 35 -5 C 38 -8, 42 -2, 38 4 C 35 2, 34 -2, 35 -5" />
+                    </g>
+                </g>
+
+                <!-- 3. Specular Highlight (The "Shine" reflection) -->
+                <!-- Creates the glossy glass effect -->
+                <ellipse cx="-20" cy="-25" rx="25" ry="12" fill="white" opacity="0.4" transform="rotate(-30)" />
+
+                <!-- 4. Rim Shadow Overlay -->
+                <circle cx="0" cy="0" r="55" fill="url(#rimShadow)" />
+            </g>
+
+            <!-- GRADUATION CAP -->
+            <g transform="translate(250, 75)">
+                <!-- Cap Top (Diamond) -->
+                <polygon points="0,-40 70,0 0,40 -70,0" fill="#001e60" stroke="#d4af37" stroke-width="1" />
+
+                <!-- Tassel -->
+                <line x1="-70" y1="0" x2="-70" y2="35" stroke="#d4af37" stroke-width="2" />
+                <polygon points="-70,35 -75,55 -65,55" fill="#d4af37" />
+                <!-- Tassel string connector -->
+                <circle cx="0" cy="-40" r="2" fill="#d4af37" />
+                <line x1="0" y1="-40" x2="-70" y2="0" stroke="#d4af37" stroke-width="1" />
+            </g>
+
+            <!-- TOP BAR -->
+            <!-- Moved bar up to be physically above the letters as requested -->
+            <rect x="20" y="200" width="460" height="6" fill="#d4af37" />
+
+            <!-- GBS TEXT -->
+            <!-- Used scale to stretch letters horizontally to match the wide serif font in image -->
+            <!-- Double-layered text to create the "outside" stroke effect -->
+            <!-- Moved text down to clear the top bar -->
+            <g transform="translate(250, 335)">
+                <g transform="scale(1.15, 1)">
+                    <!-- Layer 1: Thick Gold Outline -->
+                    <text x="0" y="0" text-anchor="middle" font-family="'Times New Roman', Times, serif"
+                        font-weight="900" font-size="165" fill="none" stroke="#d4af37" stroke-width="10"
+                        stroke-linejoin="round" stroke-linecap="round">GBS</text>
+
+                    <!-- Layer 2: Dark Blue Fill -->
+                    <text x="0" y="0" text-anchor="middle" font-family="'Times New Roman', Times, serif"
+                        font-weight="900" font-size="165" fill="#001e60" stroke="none">GBS</text>
+                </g>
+            </g>
+
+            <!-- BOTTOM BAR -->
+            <!-- Adjusted position to sit below the new text position -->
+            <rect x="20" y="350" width="460" height="6" fill="#d4af37" />
+
+            <!-- FULL NAME TEXT -->
+            <text x="250" y="390" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="bold"
+                fill="#001e60" font-size="29" letter-spacing="-0.5">GLOBAL BUSINESS SCHOOL</text>
+
+            <!-- Bottom decorative thin line -->
+            <rect x="20" y="400" width="460" height="2" fill="#d4af37" />
+
+            <!-- MOTTO TEXT -->
+            <text x="250" y="440" text-anchor="middle" class="text-motto" font-weight="bold" fill="#001e60"
+                font-size="24">We Produce Quality Individuals</text>
+
+            <text x="250" y="470" text-anchor="middle" class="text-motto" font-weight="bold" fill="#001e60"
+                font-size="24">not merely numbers</text>
+        </svg>
+        <!-- End of SVG Logo -->
+    </div>
+</body>
+
+</html>

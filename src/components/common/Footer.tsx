@@ -1,5 +1,6 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
+import Logo from "./Logo";
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -12,14 +13,11 @@ const Footer: React.FC = () => {
           {/* Brand Column */}
           <div>
             <Link to="/" className="inline-block mb-4">
-              <img
-                src="https://ik.imagekit.io/d36vkx7c33/img/gbs-logo.png"
-                alt="GBS Logo"
-                className="h-10 w-auto"
-              />
+              <Logo className="h-10 w-auto" />
             </Link>
             <p className="text-[#f6f0e8]/80 mb-4 max-w-md text-sm">
-              Empowering professionals through world-class education and comprehensive training programs.
+              Empowering professionals through world-class education and
+              comprehensive training programs.
             </p>
             <div className="flex space-x-4">
               <a
@@ -36,7 +34,9 @@ const Footer: React.FC = () => {
 
           {/* Contact Information */}
           <div>
-            <h3 className="text-lg font-semibold mb-3 text-[#cab293]">Contact Us</h3>
+            <h3 className="text-lg font-semibold mb-3 text-[#cab293]">
+              Contact Us
+            </h3>
             <div className="text-[#f6f0e8]/80 space-y-2 text-sm">
               <p>291 DS Senanayake Veediya</p>
               <p>Kandy, Sri Lanka, 20000</p>
@@ -53,7 +53,15 @@ const Footer: React.FC = () => {
               &copy; {currentYear} Global Business School. All rights reserved.
             </p>
             <p className="mt-1">
-              Powered by <a href="https://quadrate.lk" target="_blank" rel="noopener noreferrer" className="hover:text-white">Quadrate Tech Solutions</a>
+              Powered by{" "}
+              <a
+                href="https://quadrate.lk"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white"
+              >
+                Quadrate Tech Solutions
+              </a>
             </p>
           </div>
         </div>
