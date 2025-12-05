@@ -29,9 +29,7 @@ const Navbar: React.FC = () => {
   return (
     <>
       <nav
-        className={`fixed w-full z-50 transition-all duration-300 ${
-          isScrolled ? "bg-white shadow-lg" : "bg-[#101b43]/90 backdrop-blur-sm"
-        }`}
+        className={`fixed w-full z-50 transition-all duration-300 bg-white shadow-lg`}
       >
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center h-20">
@@ -40,9 +38,7 @@ const Navbar: React.FC = () => {
               <Logo className="h-12 w-auto" />
               <span className="text-2xl font-bold">
                 <span
-                  className={`${
-                    isScrolled ? "text-[#1E3A8A]" : "text-white"
-                  } px-3 py-1 rounded-lg border-2 border-[#DBEAFE] hover:border-[#2563EB] transition-colors duration-300`}
+                  className={`text-[#1E3A8A] px-3 py-1 rounded-lg border-2 border-[#DBEAFE] hover:border-[#2563EB] transition-colors duration-300`}
                 >
                   GBS
                 </span>
@@ -57,23 +53,15 @@ const Navbar: React.FC = () => {
                   to={path}
                   className={`text-sm font-medium transition-all duration-300 ${
                     isActive(path)
-                      ? isScrolled
-                        ? "text-[#7C3AED] border-b-2 border-[#7C3AED]"
-                        : "text-[#F59E0B] border-b-2 border-[#F59E0B]"
-                      : isScrolled
-                      ? "text-[#1F2937] hover:text-[#2563EB]"
-                      : "text-white hover:text-[#DBEAFE]"
+                      ? "text-[#7C3AED] border-b-2 border-[#7C3AED]"
+                      : "text-[#1F2937] hover:text-[#2563EB]"
                   }`}
                 >
                   {label}
                 </Link>
               ))}
               <button
-                className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-                  isScrolled
-                    ? "bg-gradient-to-r from-[#1E3A8A] to-[#2563EB] text-white hover:from-[#7C3AED] hover:to-[#2563EB] shadow-md hover:shadow-lg"
-                    : "bg-[#F59E0B] text-[#1E3A8A] hover:bg-[#2563EB] hover:text-white"
-                }`}
+                className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 bg-gradient-to-r from-[#1E3A8A] to-[#2563EB] text-white hover:from-[#7C3AED] hover:to-[#2563EB] shadow-md hover:shadow-lg`}
               >
                 Get Started
               </button>
@@ -81,9 +69,7 @@ const Navbar: React.FC = () => {
 
             {/* Mobile Menu Button */}
             <button
-              className={`md:hidden focus:outline-none ${
-                isScrolled ? "text-[#1E3A8A]" : "text-white"
-              }`}
+              className="md:hidden focus:outline-none text-[#1E3A8A]"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               <svg
