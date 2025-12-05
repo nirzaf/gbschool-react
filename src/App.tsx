@@ -16,6 +16,7 @@ import About from './components/About';
 import Contact from './components/Contact';
 import Courses from './components/Courses';
 import CourseDetailPage from './components/courses/CourseDetailPage';
+import EnrollmentForm from './components/enrollment/EnrollmentForm';
 import Navbar from './components/common/Navbar';
 import Footer from './components/common/Footer';
 import HubspotScript from './components/common/HubspotScript';
@@ -86,6 +87,7 @@ const router = createBrowserRouter(
       <Route path="/contact" element={<Contact />} />
       <Route path="/courses" element={<Courses />} />
       <Route path="/courses/:courseId" element={<CourseDetailPage />} />
+      <Route path="/enroll/:courseId" element={<EnrollmentForm />} />
       {/* Catch-all route that redirects to home */}
       <Route path="*" element={<RedirectToHome />} />
     </Route>
