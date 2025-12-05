@@ -4,27 +4,28 @@ import { ReactTyped } from 'react-typed';
 const HeroSection: React.FC = () => {
   return (
     <section
-      className="relative min-h-[80vh] flex items-center justify-center bg-cover bg-center"
+      className="relative min-h-[80vh] flex items-center justify-center bg-cover bg-center bg-primary-dark"
       style={{
         backgroundImage: 'url("https://ik.imagekit.io/d36vkx7c33/hero-image-gbs.jpg?updatedAt=1732635978259")',
       }}
     >
       {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#101b43]/80 to-[#1e2d5b]/80"></div>
-      
+      <div className="absolute inset-0 bg-gradient-to-b from-primary-dark/85 to-primary-mythical/85"></div>
+
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center">
-          <h1 
-            className="text-5xl md:text-7xl font-bold mb-6 text-white"
+          <h1
+            className="text-5xl md:text-7xl font-bold mb-6 text-white drop-shadow-lg"
             data-aos="fade-up"
           >
             Global Business School
           </h1>
-          
-          <div 
+
+          <div
             className="text-xl md:text-3xl text-white mb-8"
             data-aos="fade-up"
             data-aos-delay="200"
+            aria-label="Rotating taglines showcasing our mission"
           >
             <ReactTyped
               strings={[
@@ -41,14 +42,14 @@ const HeroSection: React.FC = () => {
             />
           </div>
 
-          <p 
-            className="text-xl md:text-2xl mb-8 text-[#f6f0e8]"
+          <p
+            className="text-xl md:text-2xl mb-8 text-surface-beach"
             data-aos="fade-up"
             data-aos-delay="400"
           >
             Your Gateway to Professional Excellence and Global Success
           </p>
-          
+
           <div
             data-aos="fade-up"
             data-aos-delay="600"
@@ -58,12 +59,12 @@ const HeroSection: React.FC = () => {
       </div>
 
       {/* Scroll indicator */}
-      <div 
+      <div
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce"
         data-aos="fade-up"
         data-aos-delay="800"
       >
-        <svg 
+        <svg
           className="w-6 h-6 text-white"
           fill="none"
           stroke="currentColor"

@@ -1,19 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { Transition } from "@headlessui/react";
 import Logo from "./Logo";
 
 const Navbar: React.FC = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 0);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   const navLinks = [
     { path: "/", label: "Home" },
@@ -38,7 +30,7 @@ const Navbar: React.FC = () => {
               <Logo className="h-12 w-auto" />
               <span className="text-2xl font-bold">
                 <span
-                  className={`text-[#1E3A8A] px-3 py-1 rounded-lg border-2 border-[#DBEAFE] hover:border-[#2563EB] transition-colors duration-300`}
+                  className={`text-primary px-3 py-1 rounded-lg border-2 border-surface-light hover:border-primary-light transition-colors duration-300`}
                 >
                   GBS
                 </span>
@@ -51,17 +43,16 @@ const Navbar: React.FC = () => {
                 <Link
                   key={path}
                   to={path}
-                  className={`text-sm font-medium transition-all duration-300 ${
-                    isActive(path)
-                      ? "text-[#7C3AED] border-b-2 border-[#7C3AED]"
-                      : "text-[#1F2937] hover:text-[#2563EB]"
-                  }`}
+                  className={`text-sm font-medium transition-all duration-300 ${isActive(path)
+                    ? "text-accent-purple border-b-2 border-accent-purple"
+                    : "text-neutral-dark hover:text-primary-light"
+                    }`}
                 >
                   {label}
                 </Link>
               ))}
               <button
-                className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 bg-gradient-to-r from-[#1E3A8A] to-[#2563EB] text-white hover:from-[#7C3AED] hover:to-[#2563EB] shadow-md hover:shadow-lg`}
+                className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 bg-gradient-to-r from-primary to-primary-light text-white hover:from-accent-purple hover:to-primary-light shadow-md hover:shadow-lg`}
               >
                 Get Started
               </button>
@@ -69,7 +60,7 @@ const Navbar: React.FC = () => {
 
             {/* Mobile Menu Button */}
             <button
-              className="md:hidden focus:outline-none text-[#1E3A8A]"
+              className="md:hidden focus:outline-none text-primary"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               <svg
@@ -91,29 +82,36 @@ const Navbar: React.FC = () => {
           </div>
 
           {/* Mobile Menu */}
-          {isMobileMenuOpen && (
-            <div className="md:hidden bg-white shadow-lg rounded-b-2xl">
+          <Transition
+            show={isMobileMenuOpen}
+            enter="transition duration-200 ease-out"
+            enterFrom="opacity-0 -translate-y-2"
+            enterTo="opacity-100 translate-y-0"
+            leave="transition duration-150 ease-in"
+            leaveFrom="opacity-100 translate-y-0"
+            leaveTo="opacity-0 -translate-y-2"
+          >
+            <div className="md:hidden bg-white shadow-xl rounded-b-2xl">
               <div className="px-4 pt-2 pb-6 space-y-4">
                 {navLinks.map(({ path, label }) => (
                   <Link
                     key={path}
                     to={path}
-                    className={`block py-2 text-sm font-medium ${
-                      isActive(path)
-                        ? "text-[#7C3AED] bg-[#DBEAFE] rounded-lg px-4"
-                        : "text-[#1F2937] hover:text-[#2563EB] hover:bg-[#F3F4F6] px-4 rounded-lg"
-                    }`}
+                    className={`block py-2 text-sm font-medium ${isActive(path)
+                      ? "text-accent-purple bg-surface-light rounded-lg px-4"
+                      : "text-neutral-dark hover:text-primary-light hover:bg-neutral-light px-4 rounded-lg"
+                      }`}
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     {label}
                   </Link>
                 ))}
-                <button className="w-full px-4 py-2 bg-gradient-to-r from-[#1E3A8A] to-[#2563EB] text-white rounded-lg text-sm font-medium hover:from-[#7C3AED] hover:to-[#2563EB] shadow-md hover:shadow-lg transition-all duration-300">
+                <button className="w-full px-4 py-2 bg-gradient-to-r from-primary to-primary-light text-white rounded-lg text-sm font-medium hover:from-accent-purple hover:to-primary-light shadow-md hover:shadow-lg transition-all duration-300">
                   Get Started
                 </button>
               </div>
             </div>
-          )}
+          </Transition>
         </div>
       </nav>
 

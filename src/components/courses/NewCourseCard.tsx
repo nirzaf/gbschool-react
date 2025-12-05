@@ -22,17 +22,17 @@ const NewCourseCard: React.FC<NewCourseCardProps> = ({ title, duration, level, o
       <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col h-full w-full border border-gray-100">
         <div className="flex-grow">
           <div className="mb-6">
-            <h3 className="text-xl font-bold text-gray-800 mb-2 line-clamp-2 min-h-[3.5rem]">{title}</h3>
+            <h3 title={title} className="text-xl font-bold text-gray-800 mb-2 line-clamp-2 min-h-[3.5rem]">{title}</h3>
             <div className="flex flex-wrap gap-2 mb-4">
-              <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">
+              <span className="px-3 py-1 bg-surface-light text-primary rounded-full text-sm font-medium">
                 {duration}
               </span>
-              <span className="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-medium">
+              <span className="px-3 py-1 bg-accent-emerald/10 text-accent-emerald rounded-full text-sm font-medium">
                 {level}
               </span>
             </div>
           </div>
-          <div className="space-y-3">
+          <div className="space-y-3 min-h-[8rem]">
             <h4 className="font-semibold text-gray-700">Course Objectives:</h4>
             <ul className="list-disc pl-5 space-y-2 text-gray-600">
               {objectives.map((objective, index) => (
@@ -42,9 +42,9 @@ const NewCourseCard: React.FC<NewCourseCardProps> = ({ title, duration, level, o
           </div>
         </div>
         <div className="mt-6 pt-4 border-t border-gray-100">
-          <Link 
+          <Link
             to={`/courses/${getCourseSlug(title)}`}
-            className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors duration-300 flex items-center justify-center space-x-2"
+            className="w-full bg-primary-light text-white py-2 px-4 rounded-lg hover:bg-primary transition-all duration-300 flex items-center justify-center space-x-2 hover:-translate-y-1 hover:scale-[1.02]"
           >
             <span>Learn More</span>
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
