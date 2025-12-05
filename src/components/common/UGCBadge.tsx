@@ -1,59 +1,43 @@
 import React from 'react';
-import './UGCBadge.css';
 
-/**
- * Animated UGC (University Grants Commission) badge
- * Uses CSS animations with colors from GBS logo (dark blue #001e60 and gold #d4af37)
- */
-const UGCBadge: React.FC = () => {
-    return (
-        <div className="ugc-badge-container">
-            <div className="ugc-badge">
-                {/* Outer rotating ring */}
-                <div className="ugc-ring"></div>
+type CSSVar = React.CSSProperties & { [key: string]: string | number };
 
-                {/* Inner shield shape */}
-                <div className="ugc-shield">
-                    {/* Top section with laurel */}
-                    <div className="ugc-laurel">
-                        <svg viewBox="0 0 60 60" className="laurel-svg">
-                            {/* Left laurel branch */}
-                            <path
-                                d="M 15 30 Q 12 25, 10 20 Q 8 15, 10 10"
-                                stroke="#d4af37"
-                                strokeWidth="2"
-                                fill="none"
-                                className="laurel-left"
-                            />
-                            {/* Right laurel branch */}
-                            <path
-                                d="M 45 30 Q 48 25, 50 20 Q 52 15, 50 10"
-                                stroke="#d4af37"
-                                strokeWidth="2"
-                                fill="none"
-                                className="laurel-right"
-                            />
-                            {/* Center star */}
-                            <polygon
-                                points="30,12 32,18 38,18 33,22 35,28 30,24 25,28 27,22 22,18 28,18"
-                                fill="#d4af37"
-                                className="center-star"
-                            />
-                        </svg>
-                    </div>
+interface UGCBadgeProps {
+  size?: string; // e.g. '12px', '16px'
+  title?: string;
+  subtitle?: string;
+}
 
-                    {/* UGC Text */}
-                    <div className="ugc-text">
-                        <span className="ugc-letters">UGC</span>
-                        <span className="ugc-approved">APPROVED</span>
-                    </div>
-                </div>
+const UGCBadge: React.FC<UGCBadgeProps> = ({ size = '12px', title = 'GBS', subtitle = 'UGC APPROVED' }) => {
+  const styleVars: CSSVar = { ['--badge-size']: size } as CSSVar;
 
-                {/* Pulsing glow effect */}
-                <div className="ugc-glow"></div>
+  return (
+    <div className="ugc-badge-wrapper" style={styleVars} aria-label="UGC approved badge">
+      <div className="ugc-orbit-ring" aria-hidden="true" />
+
+      <div className="ugc-shield-container">
+        <div className="ugc-shield-border">
+          <div className="ugc-shield-body">
+            <div className="ugc-sheen" aria-hidden="true" />
+
+            <svg className="ugc-laurels" viewBox="0 0 200 80" role="img" aria-label="Laurel wreath">
+              <g>
+                <path d="M30 60 C20 50, 18 40, 22 30 C24 25, 28 20, 34 18 C32 24, 30 30, 32 36 C34 42, 38 48, 44 52 C40 54, 36 57, 30 60" />
+                <path d="M170 60 C160 50, 158 40, 162 30 C164 25, 168 20, 174 18 C172 24, 170 30, 172 36 C174 42, 178 48, 184 52 C180 54, 176 57, 170 60" />
+              </g>
+            </svg>
+
+            <div className="ugc-content">
+              <div className="ugc-title">{title}</div>
+              <div className="ugc-subtitle">{subtitle}</div>
+              <div className="ugc-star">★ ★ ★</div>
             </div>
+          </div>
         </div>
-    );
+      </div>
+    </div>
+  );
 };
 
 export default UGCBadge;
+

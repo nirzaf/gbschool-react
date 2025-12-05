@@ -1,6 +1,7 @@
 import React from 'react';
 import { ReactTyped } from 'react-typed';
 import { Link } from 'react-router-dom';
+import UGCBadge from '../common/UGCBadge';
 
 const HeroSection: React.FC = () => {
   return (
@@ -19,12 +20,8 @@ const HeroSection: React.FC = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center max-w-5xl mx-auto">
           {/* Badge/Tagline */}
-          <div
-            className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 mb-8"
-            data-aos="fade-down"
-          >
-            <span className="text-accent-gold">🎓</span>
-            <span className="text-white/90 text-sm font-medium">Kandy's Premier Business Education Institution</span>
+          <div className="mb-8 flex justify-center" data-aos="fade-down">
+            <UGCBadge size="10px" title="GBS" subtitle="UGC APPROVED" />
           </div>
 
           {/* Main Heading */}

@@ -36,6 +36,177 @@ body {
 html {
   scroll-behavior: smooth;
 }
+:root {
+  --badge-gold: #d4af37;
+  --badge-gold-light: #f9e588;
+  --badge-gold-dark: #aa8c2c;
+  --badge-navy: #001e60;
+  --badge-navy-light: #002b8a;
+  --badge-navy-dark: #000f30;
+  --badge-size: 16px;
+}
+
+.ugc-badge-wrapper {
+  font-size: var(--badge-size);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 2em;
+  filter: drop-shadow(0 0.5em 1em rgba(0,0,0,0.3));
+}
+
+.ugc-orbit-ring {
+  position: absolute;
+  width: 10em;
+  height: 10em;
+  border-radius: 50%;
+  border: 0.1em solid rgba(212, 175, 55, 0.2);
+  border-top-color: var(--badge-gold);
+  border-bottom-color: var(--badge-gold);
+  animation: spin-cw 8s linear infinite;
+  z-index: 0;
+}
+
+.ugc-orbit-ring::before {
+  content: '';
+  position: absolute;
+  top: 0.5em; left: 0.5em; right: 0.5em; bottom: 0.5em;
+  border-radius: 50%;
+  border: 0.1em dashed rgba(212, 175, 55, 0.4);
+  animation: spin-ccw 12s linear infinite;
+}
+
+.ugc-shield-container {
+  position: relative;
+  width: 7em;
+  height: 8.5em;
+  z-index: 1;
+  animation: float-badge 3s ease-in-out infinite;
+}
+
+.ugc-shield-border {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(135deg, var(--badge-gold) 0%, var(--badge-gold-light) 50%, var(--badge-gold-dark) 100%);
+  clip-path: polygon(50% 0%, 100% 20%, 100% 75%, 50% 100%, 0% 75%, 0% 20%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 1em rgba(212, 175, 55, 0.5);
+}
+
+.ugc-shield-body {
+  position: absolute;
+  top: 0.2em; left: 0.2em; right: 0.2em; bottom: 0.2em;
+  background: radial-gradient(circle at 50% 30%, var(--badge-navy-light) 0%, var(--badge-navy) 60%, var(--badge-navy-dark) 100%);
+  clip-path: polygon(50% 0%, 100% 20%, 100% 75%, 50% 100%, 0% 75%, 0% 20%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden;
+}
+
+.ugc-sheen {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(to right, transparent 0%, rgba(255,255,255,0.1) 40%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0.1) 60%, transparent 100%);
+  transform: rotate(45deg);
+  animation: sheen-slide 4s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.ugc-laurels {
+  width: 80%;
+  margin-top: 0.8em;
+  fill: var(--badge-gold);
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.5));
+  animation: pulse-gold 3s ease-in-out infinite;
+}
+
+.ugc-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -0.5em;
+  z-index: 5;
+}
+
+.ugc-title {
+  font-family: 'Times New Roman', serif;
+  font-weight: 900;
+  font-size: 2em;
+  line-height: 1;
+  background: linear-gradient(to bottom, #fff 0%, var(--badge-gold) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 0px rgba(0,0,0,0.5));
+  letter-spacing: 0.05em;
+}
+
+.ugc-subtitle {
+  font-family: 'Arial', sans-serif;
+  font-size: 0.5em;
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  margin-top: 0.2em;
+  opacity: 0.9;
+}
+
+.ugc-star {
+  color: white;
+  font-size: 0.6em;
+  margin-top: 0.2em;
+  animation: twinkle 2s infinite;
+}
+
+.ugc-badge-wrapper:hover .ugc-orbit-ring {
+  border-color: var(--badge-gold);
+  animation-duration: 2s;
+}
+
+.ugc-badge-wrapper:hover .ugc-shield-container {
+  transform: scale(1.05);
+  animation: none;
+  transition: transform 0.3s ease;
+}
+
+@keyframes spin-cw {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes spin-ccw {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+@keyframes float-badge {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-0.5em); }
+}
+
+@keyframes sheen-slide {
+  0%, 10% { left: -100%; top: -100%; }
+  40%, 100% { left: 100%; top: 100%; }
+}
+
+@keyframes pulse-gold {
+  0%, 100% { filter: drop-shadow(0 1px 2px rgba(0,0,0,0.5)) brightness(1); }
+  50% { filter: drop-shadow(0 0 5px var(--badge-gold)) brightness(1.2); }
+}
+
+@keyframes twinkle {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(0.6); opacity: 0.5; }
+}
 
 /* Page transitions */
 .page-enter {
