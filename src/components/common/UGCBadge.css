@@ -1,0 +1,210 @@
+/* UGC Badge Animations - Using GBS Logo Colors */
+/* Dark Blue: #001e60, Gold: #d4af37 */
+
+.ugc-badge-container {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem;
+}
+
+.ugc-badge {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Rotating outer ring */
+.ugc-ring {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 3px solid #d4af37;
+  border-radius: 50%;
+  border-top-color: transparent;
+  border-right-color: transparent;
+  animation: rotate-ring 3s linear infinite;
+}
+
+@keyframes rotate-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Shield shape */
+.ugc-shield {
+  position: relative;
+  width: 36px;
+  height: 40px;
+  background: linear-gradient(135deg, #001e60 0%, #002b8a 100%);
+  clip-path: polygon(50% 0%, 100% 20%, 100% 70%, 50% 100%, 0% 70%, 0% 20%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  box-shadow: 0 2px 8px rgba(212, 175, 55, 0.3);
+  animation: shield-pulse 2s ease-in-out infinite;
+  z-index: 2;
+}
+
+@keyframes shield-pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* Laurel decoration */
+.ugc-laurel {
+  position: absolute;
+  top: 2px;
+  width: 100%;
+  height: 50%;
+}
+
+.laurel-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.laurel-left,
+.laurel-right {
+  animation: laurel-sway 3s ease-in-out infinite;
+}
+
+.laurel-right {
+  animation-delay: 0.5s;
+}
+
+@keyframes laurel-sway {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-1px);
+  }
+}
+
+.center-star {
+  animation: star-twinkle 2s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@keyframes star-twinkle {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(0.9);
+  }
+}
+
+/* UGC Text */
+.ugc-text {
+  position: absolute;
+  bottom: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  z-index: 3;
+}
+
+.ugc-letters {
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: 900;
+  font-size: 11px;
+  color: #d4af37;
+  letter-spacing: 1px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  animation: text-glow 2s ease-in-out infinite;
+}
+
+.ugc-approved {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 5px;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+@keyframes text-glow {
+  0%, 100% {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5),
+                 0 0 5px rgba(212, 175, 55, 0.3);
+  }
+  50% {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5),
+                 0 0 10px rgba(212, 175, 55, 0.6);
+  }
+}
+
+/* Pulsing glow effect */
+.ugc-glow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.3) 0%, transparent 70%);
+  animation: glow-pulse 2s ease-in-out infinite;
+  z-index: 1;
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.8;
+  }
+}
+
+/* Hover effects */
+.ugc-badge-container:hover .ugc-ring {
+  animation-duration: 1.5s;
+  border-width: 4px;
+}
+
+.ugc-badge-container:hover .ugc-shield {
+  transform: scale(1.1);
+}
+
+.ugc-badge-container:hover .ugc-glow {
+  animation-duration: 1s;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .ugc-badge {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .ugc-shield {
+    width: 30px;
+    height: 34px;
+  }
+  
+  .ugc-letters {
+    font-size: 9px;
+  }
+  
+  .ugc-approved {
+    font-size: 4px;
+  }
+}
