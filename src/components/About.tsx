@@ -9,10 +9,13 @@ import CareerDevelopmentSection from './about/CareerDevelopmentSection';
 
 const About: React.FC = () => {
   return (
-    <div className="bg-gradient-to-br from-white to-[#f6f0e8]">
+    <div className="bg-gradient-to-br from-white to-surface-beach">
       <Helmet>
-        <title>About | Global Business School</title>
-        <meta name="description" content="Learn about Global Business School's mission, values, and our commitment to providing high-quality professional education in Kandy." />
+        <title>About Us | Global Business School Kandy</title>
+        <meta name="description" content="Learn about Global Business School's mission, values, and our commitment to providing high-quality professional education in Kandy. ACCA Platinum Approved Learning Partner." />
+        <meta property="og:title" content="About Global Business School" />
+        <meta property="og:description" content="Discover our mission to provide world-class professional education in Kandy, Sri Lanka." />
+        <link rel="canonical" href="https://gbschool.cc/about" />
       </Helmet>
       <HeroSection />
       <MissionSection />

@@ -115,8 +115,30 @@ const Navbar: React.FC = () => {
         </div>
       </nav>
 
-      {/* Spacer to prevent content from hiding under fixed navbar */}
-      <div className="h-20"></div>
+      {/* Trust Badge Bar */}
+      <div className="fixed top-20 w-full z-40 bg-gradient-to-r from-primary-dark to-primary-mythical text-white py-2 shadow-md">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center justify-center space-x-6 text-xs md:text-sm overflow-x-auto">
+            <div className="flex items-center space-x-2 whitespace-nowrap">
+              <span className="text-accent-gold">🏆</span>
+              <span className="font-semibold">ACCA Platinum Approved</span>
+            </div>
+            <div className="hidden md:block h-4 w-px bg-white/30"></div>
+            <div className="flex items-center space-x-2 whitespace-nowrap">
+              <span className="text-accent-gold">🎓</span>
+              <span className="font-semibold">Oxford Brookes Partnership</span>
+            </div>
+            <div className="hidden md:block h-4 w-px bg-white/30"></div>
+            <div className="flex items-center space-x-2 whitespace-nowrap">
+              <span className="text-accent-gold">✓</span>
+              <span className="font-semibold">Ministry of Education Registered</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Spacer to prevent content from hiding under fixed navbar + trust bar */}
+      <div className="h-28"></div>
     </>
   );
 };

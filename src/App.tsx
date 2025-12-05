@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { 
+import {
   createBrowserRouter,
   RouterProvider,
   createRoutesFromElements,
@@ -15,14 +15,14 @@ import Home from './components/Home';
 import About from './components/About';
 import Contact from './components/Contact';
 import Courses from './components/Courses';
-import CourseDetail from './components/courses/CourseDetail';
+import CourseDetailPage from './components/courses/CourseDetailPage';
 import Navbar from './components/common/Navbar';
 import Footer from './components/common/Footer';
 import HubspotScript from './components/common/HubspotScript';
 
 const ErrorBoundary = () => {
   const error = useRouteError();
-  
+
   if (isRouteErrorResponse(error)) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-100">
@@ -59,7 +59,7 @@ const ErrorBoundary = () => {
 // Redirect component for handling undefined routes
 const RedirectToHome = () => {
   const navigate = useNavigate();
-  
+
   useEffect(() => {
     navigate('/');
   }, [navigate]);
@@ -85,7 +85,7 @@ const router = createBrowserRouter(
       <Route path="/about" element={<About />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/courses" element={<Courses />} />
-      <Route path="/courses/:courseSlug" element={<CourseDetail />} />
+      <Route path="/courses/:courseId" element={<CourseDetailPage />} />
       {/* Catch-all route that redirects to home */}
       <Route path="*" element={<RedirectToHome />} />
     </Route>
